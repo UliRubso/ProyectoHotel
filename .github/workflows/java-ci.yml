@@ -1,0 +1,24 @@
+name: Java CI
+
+on:
+  push:
+    branches: [ Develop, main ]
+  pull_request:
+    branches: [ Develop, main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Ejecutar pruebas
+        run: mvn test
