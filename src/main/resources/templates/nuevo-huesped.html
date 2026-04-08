@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Nuevo huésped</title>
+</head>
+<body>
+<h1>Registrar huésped</h1>
+
+<div th:if="${error}">
+    <p style="color:red;" th:text="${error}"></p>
+</div>
+
+<form th:action="@{/huespedes/guardar}" th:object="${huesped}" method="post">
+    <label>Nombre:</label>
+    <input type="text" th:field="*{nombre}" required>
+    <br><br>
+
+    <label>Número de habitación:</label>
+    <input type="number" th:field="*{numeroHabitacion}" required>
+    <br><br>
+
+    <label>Fecha de entrada:</label>
+    <input type="date" th:field="*{fechaEntrada}" required>
+    <br><br>
+
+    <label>Fecha de salida:</label>
+    <input type="date" th:field="*{fechaSalida}" required>
+    <br><br>
+
+    <button type="submit">Guardar</button>
+</form>
+
+<br>
+<a th:href="@{/huespedes}">Volver</a>
+</body>
+</html>

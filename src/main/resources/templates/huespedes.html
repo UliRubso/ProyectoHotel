@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Huéspedes</title>
+</head>
+<body>
+<h1>Lista de huéspedes</h1>
+
+<a th:href="@{/huespedes/nuevo}">Nuevo huésped</a>
+<a th:href="@{/logout}" style="margin-left:20px;">Cerrar sesión</a>
+
+<br><br>
+
+<table border="1">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Habitación</th>
+        <th>Fecha entrada</th>
+        <th>Fecha salida</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="h : ${huespedes}">
+        <td th:text="${h.id}"></td>
+        <td th:text="${h.nombre}"></td>
+        <td th:text="${h.numeroHabitacion}"></td>
+        <td th:text="${h.fechaEntrada}"></td>
+        <td th:text="${h.fechaSalida}"></td>
+        <td>
+            <a th:href="@{/huespedes/editar/{id}(id=${h.id})}">Editar</a>
+            <a th:href="@{/huespedes/eliminar/{id}(id=${h.id})}">Eliminar</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>
