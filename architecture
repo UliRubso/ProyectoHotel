@@ -1,0 +1,17 @@
+[Usuario del hotel]
+        │
+        ▼
+[Navegador web]
+        │
+        ▼
+[Aplicación web Spring Boot]
+        │
+   ┌────┼────┐
+   ▼    ▼    ▼
+[Login][Registro][Consulta/Edición]
+        │
+        ▼
+   [Base de datos H2]
+
+Apoyo:
+[GitHub] [GitHub Projects] [GitHub Actions]
