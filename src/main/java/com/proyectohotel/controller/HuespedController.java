@@ -43,7 +43,7 @@ public class HuespedController {
     @GetMapping("/editar/{id}")
     public String editarHuesped(@PathVariable Long id, Model model) {
         Huesped huesped = huespedService.obtenerPorId(id)
-                .orElseThrow(() -> new IllegalArgumentException("Huésped no encontrado"));
+                .orElseThrow(() -> new IllegalArgumentException("Huesped no encontrado"));
         model.addAttribute("huesped", huesped);
         return "editar-huesped";
     }
@@ -52,7 +52,7 @@ public class HuespedController {
     public String actualizarHuesped(@PathVariable Long id, @ModelAttribute Huesped huesped, Model model) {
         try {
             Huesped existente = huespedService.obtenerPorId(id)
-                    .orElseThrow(() -> new IllegalArgumentException("Huésped no encontrado"));
+                    .orElseThrow(() -> new IllegalArgumentException("Huesped no encontrado"));
 
             existente.setNombre(huesped.getNombre());
             existente.setNumeroHabitacion(huesped.getNumeroHabitacion());
